@@ -8,8 +8,8 @@ export const event = {
   edition: 'Idea2Agent Edition',
   tagline: 'Where Ideas Become Agents.',
   category: 'A 10-Hour AI Agent Building Hackathon',
-  date: '22nd August 2026',
-  dateShort: '22 Aug 2026',
+  date: '29th August 2026',
+  dateShort: '29 Aug 2026',
   day: 'Saturday',
   time: '9:45 AM – 7:45 PM',
   venue: 'LeapStart Academy',
@@ -54,7 +54,7 @@ export const riseLetters = [
 export const eventArc = [
   {
     title: 'Pre-round',
-    detail: 'Problem statements drop 17 Aug. Submit by 19 Aug. Results 20 Aug.',
+    detail: 'Problem statements drop 24 Aug. Submit by 26 Aug. Results 27 Aug.',
   },
   {
     title: 'Build day',
@@ -67,9 +67,9 @@ export const eventArc = [
 ] as const
 
 export const preRound = [
-  { label: 'Statements live', date: '17 Aug 2026' },
-  { label: 'Submission deadline', date: '19 Aug 2026' },
-  { label: 'Results', date: '20 Aug 2026' },
+  { label: 'Statements live', date: '24 Aug 2026' },
+  { label: 'Submission deadline', date: '26 Aug 2026' },
+  { label: 'Results', date: '27 Aug 2026' },
 ] as const
 
 export const schedule = [
@@ -126,6 +126,6 @@ export const registerDetails = {
     'Team lead creates an account on the Citta AI portal',
     'Enter team name, college/company, and focus area',
     'Add 3–5 members and pay ₹250/person',
-    'Get confirmation — then watch for problem statements on 17 Aug',
+    'Get confirmation — then watch for problem statements on 24 Aug',
   ],
 } as const
