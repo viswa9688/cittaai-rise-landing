@@ -1,0 +1,65 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+
+  --color-ink: #0b1220;
+  --color-ink-soft: #152033;
+  --color-slate: #3a4a63;
+  --color-mist: #e8eef6;
+  --color-fog: #f4f7fb;
+  --color-mint: #3dffb5;
+  --color-mint-deep: #12c98a;
+  --color-amber: #f5b942;
+  --color-amber-deep: #d4921a;
+  --color-line: rgba(11, 18, 32, 0.1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-fog);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-mint) 45%, white);
+    color: var(--color-ink);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .atmosphere-surface {
+    background:
+      radial-gradient(ellipse 90% 70% at 80% 10%, rgba(61, 255, 181, 0.18), transparent 55%),
+      radial-gradient(ellipse 70% 60% at 10% 80%, rgba(245, 185, 66, 0.12), transparent 50%),
+      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(232, 238, 246, 0.9), transparent 70%),
+      linear-gradient(165deg, #f7fafc 0%, #e8eef6 45%, #dce6f2 100%);
+  }
+
+  .section-pad {
+    padding-inline: clamp(1.25rem, 5vw, 4rem);
+    padding-block: clamp(4rem, 10vw, 7rem);
+  }
+}
