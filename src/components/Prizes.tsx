@@ -11,13 +11,11 @@ export function Prizes() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-sm font-semibold tracking-[0.16em] text-mint-deep uppercase">
-            Judging & prizes
-          </p>
-          <h2 className="font-display mt-3 max-w-2xl text-3xl font-bold tracking-tight text-ink md:text-5xl">
+          <p className="eyebrow text-sm text-mint">Judging & prizes</p>
+          <h2 className="font-display mt-4 max-w-2xl text-4xl font-bold tracking-wide text-ink uppercase md:text-6xl">
             Scored on whether the agent works.
           </h2>
-          <p className="mt-4 max-w-xl text-base text-slate">
+          <p className="mt-4 max-w-xl text-base font-medium text-slate">
             A live panel of industry mentors scores every team across five equal criteria — then
             deliberates on the top two.
           </p>
@@ -25,8 +23,8 @@ export function Prizes() {
 
         <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-3">
           {judgingCriteria.map((c) => (
-            <li key={c} className="text-sm font-semibold text-ink">
-              <span className="mr-2 text-amber">▸</span>
+            <li key={c} className="text-sm font-bold tracking-wide text-ink uppercase">
+              <span className="mr-2 text-mint">▸</span>
               {c}
             </li>
           ))}
@@ -40,15 +38,13 @@ export function Prizes() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="border-t-2 border-ink pt-6"
+              className="border-t-4 border-mint pt-6"
             >
-              <p className="text-sm font-semibold tracking-wide text-slate uppercase">
-                {prize.place}
-              </p>
-              <p className="font-display mt-2 text-4xl font-extrabold tracking-tight text-ink md:text-5xl">
+              <p className="eyebrow text-sm text-slate">{prize.place}</p>
+              <p className="font-display mt-3 text-5xl font-bold tracking-wide text-ink md:text-6xl">
                 {prize.amount}
               </p>
-              <p className="mt-3 text-sm text-slate">{prize.extras}</p>
+              <p className="mt-3 text-sm font-medium text-slate">{prize.extras}</p>
             </motion.div>
           ))}
         </div>

@@ -11,13 +11,11 @@ export function RiseBreakdown() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-sm font-semibold tracking-[0.16em] text-mint-deep uppercase">
-            What is RISE
-          </p>
-          <h2 className="font-display mt-3 max-w-3xl text-3xl font-bold tracking-tight text-ink md:text-5xl">
+          <p className="eyebrow text-sm text-mint">What is RISE</p>
+          <h2 className="font-display mt-4 max-w-3xl text-4xl font-bold tracking-wide text-ink uppercase md:text-6xl">
             From spark to software — in one day.
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate md:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed font-medium text-slate md:text-lg">
             {event.shortDescription}
           </p>
         </motion.div>
@@ -31,9 +29,13 @@ export function RiseBreakdown() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span className="font-display text-5xl font-extrabold text-mint-deep">{item.letter}</span>
-              <h3 className="font-display mt-3 text-xl font-bold text-ink">{item.word}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate">{item.meaning}</p>
+              <span className="font-display text-6xl font-bold text-mint md:text-7xl">
+                {item.letter}
+              </span>
+              <h3 className="font-display mt-3 text-2xl font-bold tracking-wide text-ink uppercase">
+                {item.word}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed font-medium text-slate">{item.meaning}</p>
             </motion.div>
           ))}
         </div>

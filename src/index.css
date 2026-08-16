@@ -1,19 +1,19 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'Manrope', sans-serif;
+  --font-display: 'Oswald', sans-serif;
+  --font-body: 'Outfit', sans-serif;
 
-  --color-ink: #0b1220;
-  --color-ink-soft: #152033;
-  --color-slate: #3a4a63;
-  --color-mist: #e8eef6;
-  --color-fog: #f4f7fb;
-  --color-mint: #3dffb5;
-  --color-mint-deep: #12c98a;
-  --color-amber: #f5b942;
-  --color-amber-deep: #d4921a;
-  --color-line: rgba(11, 18, 32, 0.1);
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #1a1a1a;
+  --color-slate: #4a4a4a;
+  --color-mist: #f3f3f3;
+  --color-fog: #fafafa;
+  --color-mint: #ff1f1f;
+  --color-mint-deep: #d10000;
+  --color-amber: #ff4d4d;
+  --color-amber-deep: #b80000;
+  --color-line: rgba(10, 10, 10, 0.12);
 }
 
 @layer base {
@@ -32,14 +32,15 @@
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--color-mint) 45%, white);
-    color: var(--color-ink);
+    background: var(--color-mint);
+    color: #fff;
   }
 }
 
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
+    letter-spacing: 0.02em;
   }
 
   .font-body {
@@ -52,14 +53,29 @@
 
   .atmosphere-surface {
     background:
-      radial-gradient(ellipse 90% 70% at 80% 10%, rgba(61, 255, 181, 0.18), transparent 55%),
-      radial-gradient(ellipse 70% 60% at 10% 80%, rgba(245, 185, 66, 0.12), transparent 50%),
-      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(232, 238, 246, 0.9), transparent 70%),
-      linear-gradient(165deg, #f7fafc 0%, #e8eef6 45%, #dce6f2 100%);
+      radial-gradient(ellipse 85% 65% at 88% 8%, rgba(255, 31, 31, 0.28), transparent 52%),
+      radial-gradient(ellipse 60% 50% at 8% 92%, rgba(209, 0, 0, 0.14), transparent 48%),
+      radial-gradient(ellipse 45% 35% at 45% 45%, rgba(255, 255, 255, 0.85), transparent 70%),
+      linear-gradient(160deg, #ffffff 0%, #f0f0f0 42%, #e4e4e4 100%);
   }
 
   .section-pad {
     padding-inline: clamp(1.25rem, 5vw, 4rem);
     padding-block: clamp(4rem, 10vw, 7rem);
+  }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .headline-impact {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    line-height: 0.9;
   }
 }

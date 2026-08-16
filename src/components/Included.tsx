@@ -3,7 +3,7 @@ import { included } from '../content'
 
 export function Included() {
   return (
-    <section id="included" className="section-pad bg-mist/50">
+    <section id="included" className="section-pad bg-mist/60">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -11,10 +11,8 @@ export function Included() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-sm font-semibold tracking-[0.16em] text-mint-deep uppercase">
-            What’s included
-          </p>
-          <h2 className="font-display mt-3 text-3xl font-bold tracking-tight text-ink md:text-5xl">
+          <p className="eyebrow text-sm text-mint">What’s included</p>
+          <h2 className="font-display mt-4 text-4xl font-bold tracking-wide text-ink uppercase md:text-6xl">
             Show up ready to build.
           </h2>
         </motion.div>
@@ -33,7 +31,7 @@ export function Included() {
                 className="mt-1 inline-block h-2.5 w-2.5 shrink-0 rounded-full bg-mint"
                 aria-hidden
               />
-              <span className="text-base font-medium text-ink md:text-lg">{item}</span>
+              <span className="text-base font-semibold text-ink md:text-lg">{item}</span>
             </motion.li>
           ))}
         </ul>
