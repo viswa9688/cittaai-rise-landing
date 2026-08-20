@@ -1,6 +1,7 @@
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { RiseBreakdown } from './components/RiseBreakdown'
+import { Venue } from './components/Venue'
 import { EventArc } from './components/EventArc'
 import { Schedule } from './components/Schedule'
 import { Prizes } from './components/Prizes'
@@ -15,6 +16,7 @@ export default function App() {
       <main>
         <Hero />
         <RiseBreakdown />
+        <Venue />
         <EventArc />
         <Schedule />
         <Prizes />

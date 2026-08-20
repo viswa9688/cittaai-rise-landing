@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { event, registerDetails, REGISTER_URL } from '../content'
+import { event, registerDetails, registerFields, REGISTER_URL } from '../content'
 
 export function RegisterCTA() {
   return (
@@ -31,28 +31,33 @@ export function RegisterCTA() {
           </p>
         </motion.div>
 
-        <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4 text-sm">
-          <p>
-            <span className="text-mist/50">Fee </span>
-            <span className="font-display text-lg font-bold tracking-wide text-mint">
-              {registerDetails.fee}
-            </span>
+        <div className="mt-10 max-w-2xl">
+          <p className="text-sm text-mist/50">Fee</p>
+          <p className="font-display mt-1 text-lg font-bold tracking-wide text-mint">
+            {registerDetails.fee}
           </p>
-          <p>
-            <span className="text-mist/50">Team </span>
-            <span className="font-semibold">{registerDetails.team}</span>
-          </p>
-          <p>
-            <span className="text-mist/50">Capacity </span>
-            <span className="font-semibold">{registerDetails.capacity}</span>
-          </p>
+          <div className="mt-4 flex flex-wrap gap-x-10 gap-y-3 text-sm">
+            <p>
+              <span className="text-mist/50">Team </span>
+              <span className="font-semibold">{registerDetails.team}</span>
+            </p>
+            <p>
+              <span className="text-mist/50">Capacity </span>
+              <span className="font-semibold">{registerDetails.capacity}</span>
+            </p>
+          </div>
         </div>
 
-        <ol className="mt-12 max-w-xl space-y-3">
-          {registerDetails.steps.map((step, i) => (
-            <li key={step} className="flex gap-3 text-sm font-medium text-mist/75">
-              <span className="font-display font-bold text-mint">{i + 1}.</span>
-              {step}
+        <p className="mt-12 text-sm font-medium text-mist/55">
+          You’ll be asked for:
+        </p>
+        <ol className="mt-4 max-w-xl space-y-3">
+          {registerFields.map((field) => (
+            <li key={field.letter} className="flex gap-3 text-sm font-medium text-mist/75">
+              <span className="font-display w-5 shrink-0 font-bold text-mint">
+                {field.letter}.
+              </span>
+              {field.label}
             </li>
           ))}
         </ol>
@@ -67,7 +72,7 @@ export function RegisterCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.55, delay: 0.15 }}
         >
-          Register on Citta AI portal
+          Register now
         </motion.a>
       </div>
     </section>

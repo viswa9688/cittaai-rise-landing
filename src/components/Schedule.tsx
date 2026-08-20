@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { schedule } from '../content'
+import { schedule, scheduleDisclaimer } from '../content'
 
 export function Schedule() {
   return (
@@ -27,17 +27,17 @@ export function Schedule() {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          {schedule.map((row, i) => (
+          {schedule.map((row) => (
             <li
               key={row.time + row.activity}
-              className="grid grid-cols-[7.5rem_1fr] gap-4 border-t border-ink/10 py-4 last:border-b md:grid-cols-[9rem_1fr] md:gap-8"
+              className="grid grid-cols-[7.5rem_1fr] gap-4 border-t border-ink/10 py-4 last:border-b md:grid-cols-[11rem_1fr] md:gap-8"
             >
               <time className="font-display text-sm font-bold tracking-wide text-mint tabular-nums">
                 {row.time}
               </time>
               <span
                 className={`text-sm md:text-base ${
-                  i === 3 || i === 8 || i === 10
+                  'highlight' in row && row.highlight
                     ? 'font-bold text-ink'
                     : 'font-medium text-slate'
                 }`}
@@ -47,6 +47,10 @@ export function Schedule() {
             </li>
           ))}
         </motion.ol>
+
+        <p className="mt-8 max-w-3xl text-sm font-medium text-slate/80 italic">
+          {scheduleDisclaimer}
+        </p>
       </div>
     </section>
   )

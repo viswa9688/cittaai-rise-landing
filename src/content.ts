@@ -1,6 +1,9 @@
 /** Drop the real Citta AI portal URL here when ready. */
 export const REGISTER_URL = '#register'
 
+export const FEE_COPY =
+  '₹250 + 18% GST per team member, or ₹799 + 18% GST for the entire team — whichever is lower.'
+
 export const event = {
   presents: 'CittaAI Presents',
   name: 'CittaAI RISE',
@@ -11,11 +14,11 @@ export const event = {
   date: '29th August 2026',
   dateShort: '29 Aug 2026',
   day: 'Saturday',
-  time: '9:45 AM – 7:45 PM',
+  time: '9:15 AM – 8:00 PM',
   venue: 'LeapStart Academy',
   venueArea: 'Nanakramguda Financial District',
   teamSize: '3–5 members',
-  entryFee: '₹250 per person',
+  entryFee: FEE_COPY,
   capacity: '20–25 teams',
   hashtag: '#CittaAIRISE',
   shortDescription:
@@ -54,7 +57,8 @@ export const riseLetters = [
 export const eventArc = [
   {
     title: 'Pre-round',
-    detail: 'Problem statements drop 24 Aug. Submit by 26 Aug. Results 27 Aug.',
+    detail:
+      'Problem statements drop 21 Aug. Submit by 25 Aug. Shortlisted teams announced 26 Aug.',
   },
   {
     title: 'Build day',
@@ -62,31 +66,35 @@ export const eventArc = [
   },
   {
     title: 'Pitch & prize',
-    detail: 'Live demo to a jury of industry mentors. Top teams walk away with cash, LORs, and internship shots.',
+    detail:
+      'Live demo to a jury of industry mentors. Top teams walk away with cash, LORs, and internship shots.',
   },
 ] as const
 
 export const preRound = [
-  { label: 'Statements live', date: '24 Aug 2026' },
-  { label: 'Submission deadline', date: '26 Aug 2026' },
-  { label: 'Results', date: '27 Aug 2026' },
+  { label: 'Problem statements live', date: 'Fri 21 Aug 2026' },
+  { label: 'Deadline for submission', date: 'Tue 25 Aug 2026' },
+  { label: 'Shortlisted teams announced', date: 'Wed 26 Aug 2026' },
 ] as const
 
 export const schedule = [
   { time: '09:15 AM', activity: 'Doors Open & Registration' },
-  { time: '09:45 AM', activity: 'Opening Ceremony & Briefing' },
-  { time: '10:15 AM', activity: 'Problem Statement Introduction' },
-  { time: '10:35 AM', activity: 'Coding & Building Begins' },
-  { time: '12:45 PM', activity: 'Lunch Break' },
-  { time: '01:30 PM', activity: 'Building Continues' },
-  { time: '05:00 PM', activity: 'Refreshment Break' },
-  { time: '05:15 PM', activity: 'Final Sprint & Polish' },
-  { time: '06:45 PM', activity: 'Submission Deadline' },
-  { time: '06:50 PM', activity: 'Jury Deliberation & Scoring' },
-  { time: '07:20 PM', activity: 'Winner Announcement' },
-  { time: '07:35 PM', activity: 'Vote of Thanks & Closing' },
-  { time: '07:45 PM', activity: 'Event Concludes' },
+  {
+    time: '09:45 AM',
+    activity: 'Opening Ceremony & Briefing, problem statement introduction',
+  },
+  { time: '10:00 AM', activity: 'CODING & BUILDING BEGINS', highlight: true },
+  { time: '12:45 PM', activity: 'Lunch Break 45 mins' },
+  { time: '01:30 PM', activity: 'Building' },
+  { time: '06:45–07:45 PM', activity: 'Jury Deliberation & Scoring (1 hr)' },
+  {
+    time: '07:45–08:00 PM',
+    activity: 'Winner Announcement, vote of thanks and concluding',
+  },
 ] as const
+
+export const scheduleDisclaimer =
+  'Timings may vary if there are any delays in any step of the flow.'
 
 export const judgingCriteria = [
   'Problem Understanding',
@@ -110,22 +118,26 @@ export const prizes = [
 ] as const
 
 export const included = [
-  'Lunch, refreshments, and dinner',
+  'Lunch and refreshments',
   'ID card / badge',
   'Printed notepad and pen',
   'Access to mentors and resources',
 ] as const
 
+export const registerFields = [
+  { letter: 'A', label: 'Name of the team lead' },
+  { letter: 'B', label: 'Team name' },
+  { letter: 'C', label: 'Team size (3–5)' },
+  { letter: 'D', label: 'Phone number (team lead)' },
+  { letter: 'E', label: 'Email ID' },
+  { letter: 'F', label: 'College name' },
+  { letter: 'G', label: 'City / location' },
+] as const
+
 export const registerDetails = {
-  fee: '₹250 per person',
+  fee: FEE_COPY,
   team: 'Teams of 3–5',
   capacity: '20–25 teams max · ~60–125 builders',
   refund:
     'Full refund for non-selected participants within 5–7 business days.',
-  steps: [
-    'Team lead creates an account on the Citta AI portal',
-    'Enter team name, college/company, and focus area',
-    'Add 3–5 members and pay ₹250/person',
-    'Get confirmation — then watch for problem statements on 24 Aug',
-  ],
 } as const
