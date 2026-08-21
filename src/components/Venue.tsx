@@ -13,7 +13,14 @@ export function Venue() {
         >
           <p className="eyebrow text-sm text-mint">Venue</p>
           <h2 className="font-display mt-4 text-4xl font-bold tracking-wide text-ink uppercase md:text-6xl">
-            {event.venue}
+            <a
+              href={event.venueMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-mint/50 underline-offset-8 transition hover:text-mint"
+            >
+              {event.venue}
+            </a>
           </h2>
           <p className="mt-4 max-w-xl text-base font-medium text-slate">
             {event.venueArea}

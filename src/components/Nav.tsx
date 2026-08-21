@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { REGISTER_URL } from '../content'
+import { REGISTER_LINK_PROPS } from '../content'
 
 export function Nav() {
   return (
@@ -14,7 +14,7 @@ export function Nav() {
           CittaAI <span className="text-mint">RISE</span>
         </a>
         <a
-          href={REGISTER_URL}
+          {...REGISTER_LINK_PROPS}
           className="rounded-md bg-mint px-4 py-2 text-sm font-bold tracking-wide text-white uppercase transition hover:bg-mint-deep"
         >
           Register

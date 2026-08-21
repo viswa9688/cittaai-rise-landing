@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { event, registerDetails, registerFields, REGISTER_URL } from '../content'
+import { event, registerDetails, REGISTER_LINK_PROPS } from '../content'
 
 export function RegisterCTA() {
   return (
@@ -27,45 +27,45 @@ export function RegisterCTA() {
           <p className="mt-4 max-w-xl text-base font-medium text-mist/70">
             {event.date} ({event.day}) · {event.time}
             <br />
-            {event.venue}, {event.venueArea}
+            <a
+              href={event.venueMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-mint underline decoration-mint/40 underline-offset-4 transition hover:text-white hover:decoration-white"
+            >
+              {event.venue}
+            </a>
+            , {event.venueArea}
           </p>
         </motion.div>
 
         <div className="mt-10 max-w-2xl">
           <p className="text-sm text-mist/50">Fee</p>
-          <p className="font-display mt-1 text-lg font-bold tracking-wide text-mint">
+          <p className="font-display mt-1 text-3xl font-bold tracking-wide text-mint md:text-4xl">
             {registerDetails.fee}
           </p>
-          <div className="mt-4 flex flex-wrap gap-x-10 gap-y-3 text-sm">
-            <p>
-              <span className="text-mist/50">Team </span>
-              <span className="font-semibold">{registerDetails.team}</span>
-            </p>
-            <p>
-              <span className="text-mist/50">Capacity </span>
-              <span className="font-semibold">{registerDetails.capacity}</span>
-            </p>
-          </div>
+          <p className="mt-4 text-sm">
+            <span className="text-mist/50">Team </span>
+            <span className="font-semibold">{registerDetails.team}</span>
+          </p>
         </div>
 
-        <p className="mt-12 text-sm font-medium text-mist/55">
-          You’ll be asked for:
+        <p className="mt-10 max-w-xl text-base font-bold text-white">
+          {registerDetails.refund}
         </p>
-        <ol className="mt-4 max-w-xl space-y-3">
-          {registerFields.map((field) => (
-            <li key={field.letter} className="flex gap-3 text-sm font-medium text-mist/75">
-              <span className="font-display w-5 shrink-0 font-bold text-mint">
-                {field.letter}.
-              </span>
-              {field.label}
-            </li>
-          ))}
-        </ol>
 
-        <p className="mt-6 max-w-xl text-xs text-mist/45">{registerDetails.refund}</p>
+        <p className="mt-6 text-sm font-medium text-mist/80">
+          For more info: contact{' '}
+          <a
+            href={event.contactTel}
+            className="font-bold text-mint underline decoration-mint/40 underline-offset-4 transition hover:text-white hover:decoration-white"
+          >
+            {event.contactPhone}
+          </a>
+        </p>
 
         <motion.a
-          href={REGISTER_URL}
+          {...REGISTER_LINK_PROPS}
           className="mt-10 inline-flex items-center justify-center rounded-md bg-mint px-8 py-3.5 text-sm font-bold tracking-wide text-white uppercase transition hover:bg-mint-deep"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}

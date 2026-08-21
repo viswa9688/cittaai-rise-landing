@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import { event, REGISTER_URL } from '../content'
+import { motion, useReducedMotion } from 'framer-motion'
+import { event, REGISTER_LINK_PROPS } from '../content'
 
 function Watermark() {
   const row = ['cittathon', 'hackathon', 'cittathon', 'hackathon']
@@ -22,7 +22,136 @@ function Watermark() {
   )
 }
 
+function AgentMascot({ reduceMotion }: { reduceMotion: boolean }) {
+  const pulse = reduceMotion
+    ? {}
+    : {
+        animate: { opacity: [0.45, 1, 0.45], scale: [1, 1.12, 1] },
+        transition: { duration: 2.2, repeat: Infinity, ease: 'easeInOut' as const },
+      }
+  const orbit = reduceMotion
+    ? {}
+    : {
+        animate: { rotate: 360 },
+        transition: { duration: 18, repeat: Infinity, ease: 'linear' as const },
+      }
+  const hover = reduceMotion
+    ? {}
+    : {
+        animate: { y: [0, -8, 0] },
+        transition: { duration: 3.4, repeat: Infinity, ease: 'easeInOut' as const },
+      }
+
+  return (
+    <g transform="translate(820 210)">
+      <motion.g {...hover}>
+      <ellipse cx="118" cy="268" rx="78" ry="14" fill="#0A0A0A" opacity="0.12" />
+
+      <motion.g
+        style={{ transformOrigin: '118px 128px' }}
+        {...orbit}
+      >
+        <circle
+          cx="118"
+          cy="128"
+          r="118"
+          fill="none"
+          stroke="#FF1F1F"
+          strokeOpacity="0.35"
+          strokeWidth="2"
+          strokeDasharray="8 14"
+        />
+        <circle
+          cx="118"
+          cy="10"
+          r="6"
+          fill="#FF1F1F"
+        />
+        <circle cx="226" cy="168" r="4.5" fill="#0A0A0A" />
+      </motion.g>
+
+      <circle cx="118" cy="128" r="96" fill="url(#mascotAura)" />
+
+      {/* Head */}
+      <rect
+        x="58"
+        y="28"
+        width="120"
+        height="92"
+        rx="22"
+        fill="#0A0A0A"
+        stroke="#FF1F1F"
+        strokeWidth="3"
+      />
+      <rect x="74" y="52" width="88" height="44" rx="10" fill="#1a1a1a" />
+      <motion.circle cx="100" cy="74" r="10" fill="#FF1F1F" {...pulse} style={{ transformOrigin: '100px 74px' }} />
+      <motion.circle cx="136" cy="74" r="10" fill="#FF1F1F" {...pulse} style={{ transformOrigin: '136px 74px' }} />
+      <line x1="118" y1="28" x2="118" y2="6" stroke="#FF1F1F" strokeWidth="3" />
+      <circle cx="118" cy="4" r="8" fill="#FF1F1F" />
+      <circle cx="118" cy="4" r="3.5" fill="#fff" />
+
+      {/* Body */}
+      <rect
+        x="64"
+        y="128"
+        width="108"
+        height="108"
+        rx="16"
+        fill="#111"
+        stroke="#0A0A0A"
+        strokeWidth="3"
+      />
+      <motion.circle
+        cx="118"
+        cy="176"
+        r="22"
+        fill="url(#coreGlow)"
+        {...pulse}
+        style={{ transformOrigin: '118px 176px' }}
+      />
+      <circle cx="118" cy="176" r="10" fill="#FF1F1F" />
+      <circle cx="118" cy="176" r="4" fill="#fff" />
+
+      {/* Arms */}
+      <path
+        d="M64 148 L18 188 L28 198 L72 162"
+        fill="#0A0A0A"
+        stroke="#FF1F1F"
+        strokeWidth="2"
+      />
+      <path
+        d="M172 148 L218 188 L208 198 L164 162"
+        fill="#0A0A0A"
+        stroke="#FF1F1F"
+        strokeWidth="2"
+      />
+
+      {/* Legs */}
+      <rect x="82" y="232" width="22" height="36" rx="6" fill="#0A0A0A" />
+      <rect x="132" y="232" width="22" height="36" rx="6" fill="#0A0A0A" />
+      <rect x="76" y="262" width="34" height="10" rx="3" fill="#FF1F1F" />
+      <rect x="126" y="262" width="34" height="10" rx="3" fill="#FF1F1F" />
+
+      <text
+        x="118"
+        y="312"
+        textAnchor="middle"
+        fill="#FF1F1F"
+        fontFamily="Oswald, sans-serif"
+        fontSize="18"
+        fontWeight="700"
+        letterSpacing="4"
+      >
+        AGENT
+      </text>
+      </motion.g>
+    </g>
+  )
+}
+
 function TechField() {
+  const reduceMotion = useReducedMotion() ?? false
+
   return (
     <motion.svg
       className="pointer-events-none absolute inset-0 h-full w-full"
@@ -35,12 +164,21 @@ function TechField() {
     >
       <defs>
         <linearGradient id="traceGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#0A0A0A" stopOpacity="0.08" />
-          <stop offset="50%" stopColor="#FF1F1F" stopOpacity="0.38" />
-          <stop offset="100%" stopColor="#D10000" stopOpacity="0.12" />
+          <stop offset="0%" stopColor="#0A0A0A" stopOpacity="0.06" />
+          <stop offset="50%" stopColor="#FF1F1F" stopOpacity="0.22" />
+          <stop offset="100%" stopColor="#D10000" stopOpacity="0.08" />
         </linearGradient>
         <radialGradient id="softGlow" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#FF1F1F" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#FF1F1F" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="mascotAura" cx="50%" cy="45%" r="50%">
+          <stop offset="0%" stopColor="#FF1F1F" stopOpacity="0.28" />
+          <stop offset="70%" stopColor="#FF1F1F" stopOpacity="0.06" />
+          <stop offset="100%" stopColor="#FF1F1F" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#FF4D4D" stopOpacity="0.95" />
           <stop offset="100%" stopColor="#FF1F1F" stopOpacity="0" />
         </radialGradient>
       </defs>
@@ -96,26 +234,7 @@ function TechField() {
         </g>
       ))}
 
-      {/* Robot / agent — lower left, sparse line-art */}
-      <g
-        transform="translate(70 470)"
-        fill="none"
-        stroke="#0A0A0A"
-        strokeOpacity="0.22"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      >
-        <rect x="28" y="8" width="52" height="44" rx="8" />
-        <circle cx="44" cy="28" r="4.5" fill="#FF1F1F" fillOpacity="0.45" stroke="none" />
-        <circle cx="64" cy="28" r="4.5" fill="#FF1F1F" fillOpacity="0.45" stroke="none" />
-        <line x1="54" y1="8" x2="54" y2="-6" />
-        <circle cx="54" cy="-10" r="3.5" />
-        <rect x="22" y="56" width="64" height="54" rx="6" />
-        <line x1="22" y1="72" x2="6" y2="88" />
-        <line x1="86" y1="72" x2="102" y2="88" />
-        <line x1="40" y1="110" x2="40" y2="128" />
-        <line x1="68" y1="110" x2="68" y2="128" />
-      </g>
+      <AgentMascot reduceMotion={reduceMotion} />
 
       {/* Hex cell — mid right */}
       <g
@@ -205,7 +324,7 @@ export function Hero() {
           transition={{ duration: 0.65, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
         >
           <a
-            href={REGISTER_URL}
+            {...REGISTER_LINK_PROPS}
             className="inline-flex items-center justify-center rounded-md bg-mint px-7 py-3.5 text-sm font-bold tracking-wide text-white uppercase transition hover:bg-mint-deep"
           >
             Register now

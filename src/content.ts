@@ -1,8 +1,12 @@
-/** Drop the real Citta AI portal URL here when ready. */
-export const REGISTER_URL = '#register'
+export const REGISTER_URL = 'https://rzp.io/rzp/yCKp4Vyi'
 
-export const FEE_COPY =
-  '₹250 + 18% GST per team member, or ₹799 + 18% GST for the entire team — whichever is lower.'
+export const REGISTER_LINK_PROPS = {
+  href: REGISTER_URL,
+  target: '_blank',
+  rel: 'noopener noreferrer',
+} as const
+
+export const FEE_COPY = '₹295 per person'
 
 export const event = {
   presents: 'CittaAI Presents',
@@ -17,10 +21,12 @@ export const event = {
   time: '9:15 AM – 8:00 PM',
   venue: 'LeapStart Academy',
   venueArea: 'Nanakramguda Financial District',
+  venueMapsUrl: 'https://maps.app.goo.gl/d66v3G57nU5Bkkif7',
   teamSize: '3–5 members',
   entryFee: FEE_COPY,
-  capacity: '20–25 teams',
   hashtag: '#CittaAIRISE',
+  contactPhone: '7680842847',
+  contactTel: 'tel:+917680842847',
   shortDescription:
     'CittaAI RISE (Rapid Idea-to-Agent Sprint Experience) — Idea2Agent Edition — is a 10-hour, in-person AI hackathon for builders who want to go from a raw idea to a working AI agent in a single day. Teams of 3–5 tackle real-world problem statements with AI integration at the core, guided by industry mentors, and pitch working prototypes to a live jury by evening.',
   elevatorPitch:
@@ -107,7 +113,7 @@ export const judgingCriteria = [
 export const prizes = [
   {
     place: '1st Place',
-    amount: '₹15,000',
+    amount: '₹20,000',
     extras: 'Coupons · Certificate · LOR & internship opportunities',
   },
   {
@@ -124,20 +130,9 @@ export const included = [
   'Access to mentors and resources',
 ] as const
 
-export const registerFields = [
-  { letter: 'A', label: 'Name of the team lead' },
-  { letter: 'B', label: 'Team name' },
-  { letter: 'C', label: 'Team size (3–5)' },
-  { letter: 'D', label: 'Phone number (team lead)' },
-  { letter: 'E', label: 'Email ID' },
-  { letter: 'F', label: 'College name' },
-  { letter: 'G', label: 'City / location' },
-] as const
-
 export const registerDetails = {
   fee: FEE_COPY,
   team: 'Teams of 3–5',
-  capacity: '20–25 teams max · ~60–125 builders',
   refund:
-    'Full refund for non-selected participants within 5–7 business days.',
+    'Participants not selected for 2nd round will be refunded complete money.',
 } as const
